@@ -9,7 +9,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.support.TransactionTemplate;
 
+import org.springframework.context.annotation.Profile;
+
 @Component
+@Profile("!prod")
 @ConditionalOnProperty(name = "app.legacy-fir-data-repair.enabled", havingValue = "true", matchIfMissing = true)
 public class LegacyFirDataRepairRunner implements ApplicationRunner {
 
